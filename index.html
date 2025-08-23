@@ -19,13 +19,11 @@ header { background:rgb(204, 204, 166); color:rgb(0, 0, 0); text-align:center; p
 .card h3 { margin:10px 0 5px; }
 .card p { font-size:20px; color:rgb(0, 0, 0); }
 .card .price { font-weight:bold; margin-top:10px; color:#000000; }
-/* لما الشاشة تصغر (موبايل) يصير عمود واحد */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
+    grid-template-columns: repeat(2, 1fr); /* عمودين بالموبايل فقط */
   }
+
 }
 
 </style>
