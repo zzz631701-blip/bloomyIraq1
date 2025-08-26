@@ -29,6 +29,40 @@ header { background:rgb(204, 204, 166); color:rgb(0, 0, 0); text-align:center; p
 }
 
 </style>
+<style>
+  .btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .order-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .order-btn:hover {
+    opacity: 0.85;
+  }
+
+  .insta-btn {
+    background: #8b5cf6; /* بنفسجي */
+  }
+
+  .whatsapp-btn {
+    background: #25D366; /* أخضر */
+  }
+</style>
+
 </head>
 <body>
 
@@ -79,17 +113,25 @@ const container = document.getElementById('products');
 products.forEach(p => {
   const card = document.createElement('div');
   card.className = 'card';
-  card.innerHTML = `
-    <img src="${p.image}" alt="${p.name}">
-    <h3>${p.name}</h3>
-    <p>${p.description}</p>
-    <p class="price">${p.price} IQD</p>
-    <a href="${instaLink}" target="_blank">
-      <button style="margin-top:10px; padding:10px 15px; background:#8b5cf6; color:white; border:none; border-radius:8px; cursor:pointer;">
-        اطلب الآن
-      </button>
+
+card.innerHTML = `
+  <img src="${p.image}" alt="${p.name}">
+  <h3>${p.name}</h3>
+  <p>${p.description}</p>
+  <p class="price">${p.price} IQD</p>
+
+  <div class="btn-group">
+    <a href="${instaLink}" target="_blank" class="order-btn insta-btn">
+      🛒 اطلب الآن
     </a>
-  `;
+
+    <a href="https://wa.me/9647710913140" target="_blank" class="order-btn whatsapp-btn">
+      💬 واتساب
+    </a>
+  </div>
+`;
+
+
   container.appendChild(card);
 });
 </script>
