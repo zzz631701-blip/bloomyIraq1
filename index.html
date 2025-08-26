@@ -113,27 +113,32 @@ const container = document.getElementById('products');
 products.forEach(p => {
   const card = document.createElement('div');
   card.className = 'card';
-const whatsappMessage = `مرحبا، اريد المنتج: ${p.name} - السعر: ${p.price} IQD`;
-card.innerHTML = `
-  <img src="${p.image}" alt="${p.name}">
-  <h3>${p.name}</h3>
-  <p>${p.description}</p>
-  <p class="price">${p.price} IQD</p>
 
-  <div class="btn-group">
-    <a href="${instaLink}" target="_blank" class="order-btn insta-btn">
-      🛒 اطلب الآن
-    </a>
+  // الرسالة الخاصة بالواتساب
+  const whatsappMessage = `مرحبا 👋، اريد المنتج: ${p.name} - السعر: ${p.price} IQD - الصورة: ${p.image}`;
 
-    <a href="https://wa.me/9647710913140" target="_blank" class="order-btn whatsapp-btn">
-      💬 واتساب
-    </a>
-  </div>
-`;
+  card.innerHTML = `
+    <img src="${p.image}" alt="${p.name}">
+    <h3>${p.name}</h3>
+    <p>${p.description}</p>
+    <p class="price">${p.price} IQD</p>
 
+    <div class="btn-group">
+      <a href="${instaLink}" target="_blank" class="order-btn insta-btn">
+        🛒 اطلب الآن
+      </a>
+
+      <a href="https://wa.me/9647710913140?text=${encodeURIComponent(whatsappMessage)}" 
+         target="_blank" 
+         class="order-btn whatsapp-btn">
+        💬 واتساب
+      </a>
+    </div>
+  `;
 
   container.appendChild(card);
 });
+
 </script>
 
 </body>
