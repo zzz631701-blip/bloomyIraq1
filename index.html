@@ -113,7 +113,7 @@ const container = document.getElementById('products');
 products.forEach(p => {
   const card = document.createElement('div');
   card.className = 'card';
-
+const whatsappMessage = `مرحبا، اريد المنتج: ${p.name} - السعر: ${p.price} IQD`;
 card.innerHTML = `
   <img src="${p.image}" alt="${p.name}">
   <h3>${p.name}</h3>
